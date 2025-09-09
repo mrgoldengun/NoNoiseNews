@@ -1,6 +1,7 @@
 
 const CRYPTO_NEWS_TABLE_ID = "crypto-news-table"
-const NEWS_JSON_PATH = "./data/news.json"
+const CRYPTO_NEWS_JSON_PATH = "./data/crypto_news.json"
+const ECONOMY_NEWS_JSON_PATH = "./data/economy_news.json"
 
 // ---------
 
@@ -62,7 +63,7 @@ function renderNewsTable(newsJsonData)
 window.onload = main();
 function main()
 {
-    fetch(NEWS_JSON_PATH)
+    fetch(CRYPTO_NEWS_JSON_PATH)
         .then(response => response.json())
         .then(data => renderNewsTable(data))
         .catch(error => console.error('Error loading news.json:', error));
