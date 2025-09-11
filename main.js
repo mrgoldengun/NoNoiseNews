@@ -1,13 +1,24 @@
 
 const CRYPTO_NEWS_TABLE_ID = "crypto-news-table"
+const ECONOMY_NEWS_TABLE_ID = "economy-news-table"
 const CRYPTO_NEWS_JSON_PATH = "./data/crypto_news.json"
 const ECONOMY_NEWS_JSON_PATH = "./data/economy_news.json"
 
 // ---------
 
-function renderNewsTable(newsJsonData)
+function renderCryptoNewsTable(newsJsonData)
 {
-    let writableNewsTableDivision = document.getElementById(CRYPTO_NEWS_TABLE_ID);
+    renderNewsTable(newsJsonData, CRYPTO_NEWS_TABLE_ID)
+}
+
+function renderEconomyNewsTable(newsJsonData)
+{
+    renderNewsTable(newsJsonData, ECONOMY_NEWS_TABLE_ID)
+}
+
+function renderNewsTable(newsJsonData, newsTableId)
+{
+    let writableNewsTableDivision = document.getElementById(newsTableId);
     let table = document.createElement("table");
     table.setAttribute("border", "1");
     table.setAttribute("cellpadding", "5");
@@ -65,6 +76,11 @@ function main()
 {
     fetch(CRYPTO_NEWS_JSON_PATH)
         .then(response => response.json())
-        .then(data => renderNewsTable(data))
-        .catch(error => console.error('Error loading news.json:', error));
+        .then(data => renderCryptoNewsTable(data))
+        .catch(error => console.error(`Error loading ${CRYPTO_NEWS_JSON_PATH}: ${error}`));
+
+    fetch(ECONOMY_NEWS_JSON_PATH)
+        .then(response => response.json())
+        .then(data => renderEconomyNewsTable(data))
+        .catch(error => console.error(`Error loading ${ECONOMY_NEWS_JSON_PATH}: ${error}`))
 }
