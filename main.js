@@ -47,6 +47,8 @@ function renderNewsTable(newsJsonData, newsTableId)
         let tableSourceData = document.createElement("td");
 
         let tableTitleAnchor = document.createElement("a");
+        tableTitleAnchor.setAttribute("target", "_blank");
+        tableTitleAnchor.setAttribute("rel", "noopener noreferrer")
         tableTitleAnchor.textContent = news.title;
         tableTitleAnchor.href = news.link;
 
