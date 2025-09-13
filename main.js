@@ -26,7 +26,8 @@ function renderNewsTable(newsJsonData, newsTableId)
 
     let tableHead = document.createElement("thead");
     let tableHeadRow = document.createElement("tr");
-    let headers = ["Title", "Author", "Category", "Publishing Time", "Source"];
+    // let headers = ["Title", "Author", "Category", "Publishing Time", "Source"];
+    let headers = ["Title", "Source"];
     for (let header of headers) 
     {
         let tableHeader = document.createElement("th");
@@ -59,9 +60,9 @@ function renderNewsTable(newsJsonData, newsTableId)
         tableSourceData.textContent = news.source;
 
         tableBodyRow.appendChild(tableTitleData);
-        tableBodyRow.appendChild(tableAuthorData);
-        tableBodyRow.appendChild(tableCategoryData);
-        tableBodyRow.appendChild(tablePublishTimeData);
+        // tableBodyRow.appendChild(tableAuthorData);
+        // tableBodyRow.appendChild(tableCategoryData);
+        // tableBodyRow.appendChild(tablePublishTimeData);
         tableBodyRow.appendChild(tableSourceData);
 
         tableBody.appendChild(tableBodyRow);
